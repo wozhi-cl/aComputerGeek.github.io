@@ -2,13 +2,13 @@
 layout: post
 title:  "关于Websoket的理论"
 date:   2017-4-18 19:29:08 +0800
-categories: php
+tag: php
 ---
 
 # php构建即时通讯应用
 
 
-##涉及概念
+### 涉及概念
 	
 > * TCP				传输层协议
 > * Http				应用层协议 	基于Tcp
@@ -23,7 +23,7 @@ categories: php
 > * github			代码托管平台
 > * MeepoPs			开源框架，纯php开发，高效的PHP Socket服务	
 
-##TCP
+### TCP
 1.OSI七层模型中第四层，传输层通信协议，位与IP层上、会话层下
 
 2.面向连接的、可靠的、基于字节流的
@@ -33,10 +33,10 @@ categories: php
 	
 3.建立链接需要三次握手
 
-<h3>#Socket
+<h3>Socket
 网络上的两个程序通过一个双向的通信链接，实现数据的交换，这个链接的一端称为Socket，也叫套接字</h3>
 
-###Socket本质：
+### Socket本质：
 
 > 1、一个工具、一个接口
 > 2、封装了 TCP/IP 协议
@@ -77,7 +77,7 @@ categories: php
 	继续处于监听状态，等待接收其他客户端的请求。
 
 
-#HTTP
+# HTTP
 	TCP协议之上，短连接（请求，连接，拿到信息，断开），通常监听TCP的80端口。是一个请求响应的协议。
 	
 	服务器端不能主动与客户端联系，也不能给客户端发出一个回调链接
@@ -90,8 +90,8 @@ categories: php
 	HTTP由两个部分组成。header和body。
 
 
-#Webserver的工作流程
-(../images/posts/php/webserver.png)
+# Webserver的工作流程
+![](/images/posts/php/webserver.png)
 webserver：web服务器，如：nignx、apache
 	
 	先建立一个socket,然后绑定一个ip和协议。
@@ -100,14 +100,14 @@ webserver：web服务器，如：nignx、apache
 	服务端进行处理，返回给客户端
 
 
-#WebSocket
+# WebSocket
 	WebSocket是html5的新协议，应用层协议
 	主流即时通讯协议
 	借助HTTP协议完成握手
 	
-##WebScoket协议实现即时服务两大好处
+## WebScoket协议实现即时服务两大好处
 
 	1.相互沟通的header只有两个字节
 	2.server push，有了新数据时，主动推送给客户端。
 	
-(../images/posts/php/websocketHeader.png)
+![](/images/posts/php/websocketHeader.png)
