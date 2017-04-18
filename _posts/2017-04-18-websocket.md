@@ -84,7 +84,7 @@ Socket
 	继续处于监听状态，等待接收其他客户端的请求。
 
 
-# HTTP
+<h3>HTTP</h3>
 	TCP协议之上，短连接（请求，连接，拿到信息，断开），通常监听TCP的80端口。是一个请求响应的协议。
 	
 	服务器端不能主动与客户端联系，也不能给客户端发出一个回调链接
@@ -97,7 +97,7 @@ Socket
 	HTTP由两个部分组成。header和body。
 
 
-# Webserver的工作流程
+<h3>Webserver的工作流程</h3>
 ![](/images/posts/php/webserver.png)
 webserver：web服务器，如：nignx、apache
 	
@@ -107,14 +107,15 @@ webserver：web服务器，如：nignx、apache
 	服务端进行处理，返回给客户端
 
 
-# WebSocket
+<h3>WebSocket</h3>
 	WebSocket是html5的新协议，应用层协议
 	主流即时通讯协议
 	借助HTTP协议完成握手
 	
-## WebScoket协议实现即时服务两大好处
+###WebScoket协议实现即时服务两大好处
 
 	1.相互沟通的header只有两个字节
 	2.server push，有了新数据时，主动推送给客户端。
 	
+###WebScoket的头信息
 ![](/images/posts/php/websocketHeader.png)
