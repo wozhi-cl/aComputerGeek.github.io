@@ -112,10 +112,10 @@ webserver：web服务器，如：nignx、apache
 	主流即时通讯协议
 	借助HTTP协议完成握手
 	
-###WebScoket协议实现即时服务两大好处
+WebScoket协议实现即时服务两大好处
 
 	1.相互沟通的header只有两个字节
 	2.server push，有了新数据时，主动推送给客户端。
 	
-###WebScoket的头信息
+### WebScoket的头信息
 ![](/images/posts/php/websocketHeader.png)
