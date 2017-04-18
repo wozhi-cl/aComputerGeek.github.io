@@ -9,13 +9,13 @@ avatarDesc: P H P
 url: "https://acomputergeek.github.io"
 
 # Comment
-comment:
+#comment:
     # disqus: leopard
-    duoshuo: leopard 
+    #duoshuo: leopard 
 
 # Social
 social:
-    weibo: 11111111 
+    #weibo: 11111111 
     github: aComputerGeek
     # twitter: 
     mail: theoceansdeep@163.com
