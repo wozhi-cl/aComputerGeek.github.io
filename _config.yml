@@ -3,7 +3,7 @@ title: 蔡亮
 subtitle: 个人站
 description: 欢迎来到我的个人站~
 # 头像里面的标题
-avatarTitle: aComputer<br/>Geek
+avatarTitle: aComputer<br/>Geek<br/>
 # 头像里面的描述
 avatarDesc: P H P
 url: "https://acomputergeek.github.io"
@@ -19,6 +19,7 @@ social:
     github: aComputerGeek
     # twitter: 
     mail: theoceansdeep@163.com
+    qq:1299271996
 
 
 # 《----------------- 上面的信息修改成你自己的 ---------------------------》
