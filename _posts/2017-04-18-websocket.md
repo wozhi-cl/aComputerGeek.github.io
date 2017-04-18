@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "关于Websoket的理论"
+date:   2017-4-18 19:29:08 +0800
+categories: php
+---
+
 #php构建即时通讯应用
 
 
