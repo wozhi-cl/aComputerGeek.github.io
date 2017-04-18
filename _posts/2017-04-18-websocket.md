@@ -5,7 +5,7 @@ date:   2017-4-18 19:29:08 +0800
 categories: php
 ---
 
-#php构建即时通讯应用
+# php构建即时通讯应用
 
 
 ##涉及概念
@@ -91,7 +91,7 @@ categories: php
 
 
 #Webserver的工作流程
-<img src="./webserver.png">
+![mahua](../images/posts/php/webserver.png)
 webserver：web服务器，如：nignx、apache
 	
 	先建立一个socket,然后绑定一个ip和协议。
@@ -110,4 +110,4 @@ webserver：web服务器，如：nignx、apache
 	1.相互沟通的header只有两个字节
 	2.server push，有了新数据时，主动推送给客户端。
 	
-<img src="./websocketHeader.png">
+![mahua](../images/posts/php/websocketHeader.png)
