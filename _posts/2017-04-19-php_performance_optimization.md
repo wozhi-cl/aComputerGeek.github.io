@@ -7,8 +7,7 @@ tag: php
 
 # php性能问题简析
 
-	php性能问题，占整体项目性能问题的比例
-
+### php性能问题，占整体项目性能问题的比例
 ![](/images/post/php/php_Proportion.pngs)
 
 	性能优化项目，不要局限于优化PHP
