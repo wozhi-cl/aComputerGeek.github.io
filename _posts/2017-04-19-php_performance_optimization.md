@@ -8,16 +8,17 @@ tag: php
 # php性能问题简析
 
 	php性能问题，占整体项目性能问题的比例
+
 ![](/images/post/php/php_Proportion.pngs)
 
 	性能优化项目，不要局限于优化PHP
 
-###php性能问题的解决方向
+### php性能问题的解决方向
 > * php语言级的性能优化
 > * php周边问题的性能优化(webserver、db、缓存等)
 > * php语言自身分析、优化(php底层c)
 
-###压力测试工具简介
+### 压力测试工具简介
 Apache Benchmark(ab)
     
     ab是由Apche提供的压力测试软件。安装apache服务器时会自带该压测软件
@@ -49,7 +50,7 @@ Total transferred:      1031215 bytes
 HTML transferred:       1021625 bytes
 Requests per second:    1.24 [#/sec] (mean)      //每秒接收请求数
 Time per request:       8096.463 [ms] (mean)
-Time per request:       809.646 [ms] (mean, across all concurrent requests)                                        //每个请求的耗时数
+Time per request:       809.646 [ms] (mean, across all concurrent requests)       //每个请求的耗时数
 Transfer rate:          124.38 [Kbytes/sec] received
 
 Connection Times (ms)
