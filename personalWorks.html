@@ -9,7 +9,6 @@ title: 个人作品
         background-color: #fafafa;
         line-height: 1.8;
         padding: 16px;
-        overflow-y: scroll;
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
@@ -20,6 +19,18 @@ title: 个人作品
     }
     body {
         color: #757575;
+    }
+    figcaption, figure, h4 {
+        margin: 0;
+    }
+
+    .production {
+        line-height: 1.8;
+    }
+
+    .work{
+        width: 300px;
+        height: 375px;
     }
 
     .work figure:hover {
@@ -43,12 +54,8 @@ title: 个人作品
         -webkit-transition: all .5s ease;
         transition: all .5s ease;
     }
-    dl, figcaption, figure, h4, p {
-        margin: 0;
-    }
-    .home, .production {
-        line-height: 1.8;
-    }
+    
+  
 
     .work .product .product-title a {
         font-size: 12px;
@@ -60,12 +67,6 @@ title: 个人作品
     }
     a {
         text-decoration: none;
-    }
-    .work figure:hover {
-        cursor: pointer;
-    }
-    .work .product {
-        text-align: center;
     }
 
 </style>
