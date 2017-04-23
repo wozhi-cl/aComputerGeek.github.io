@@ -197,6 +197,9 @@ ul.nav-pills.affix{
               <li id="register" class="dropdown">
                <a href="/home/user/register" class="dropdown-toggle">注册</a>
               </li>
+              <li>
+                  　
+              </li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </nav>  
@@ -1721,82 +1724,6 @@ ul.nav-pills.affix{
 
 		<!-- JS -->
 		   <script type="text/javascript">
-
-        //点击提交触发事件
-        $('#btn').click(function(){
-          
-          //获取用户名跟密码
-          var uname = $('#uname').val();
-          var pword = $('#pword').val();
-          var vcode = $('#vcode').val();
-
-          $.ajaxSetup({
-              headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-          }); 
-          //发送ajax
-          $.ajax({
-              url:'/home/user/login',
-              type:'post',
-              data:{uname:uname,pword:pword,vcode:vcode},
-              datatype:'json',
-              success:function(data){
-                if(data==1){
-                    $('#successMessage').text('恭喜您,登陆成功!').fadeIn(500);
-                    setTimeout(function(){
-                        $('#successMessage').fadeOut(1500);
-                        //登陆成功模态框消失
-                        // $('#myModal').modal('hide');
-                        location.href = location.href;
-
-                    },1500);
-   
-                }else if(data==0){
-
-                    $('#errorMessage').text('抱歉,您输入的用户名不存在!').fadeIn(500);
-                  
-
-                    $('#errorMessage').fadeOut(3000);
-                   
-                }else if(data==2){
-                    $('#errorMessage').text('抱歉,您的密码输入错误!').fadeIn(500);
-                
-
-                    $('#errorMessage').fadeOut(3000);
-                  
-                }else if(data == 3){
-                    $('#errorMessage').text('抱歉,您的验证码输入错误!').fadeIn(500);
-                   
-
-                    $('#errorMessage').fadeOut(3000);
-                       
-                   
-                }else if(data==5){
-
-                   $('#errorMessage').text('抱歉,您的账号已被限制登录!').fadeIn(500);
-                   
-
-                    $('#errorMessage').fadeOut(3000);
-                }
-
-              },
-              async:false,
-          })
-
-          return false;
-        })
-
-       // 点击更换验证码
-        $('#mycode').click(function(){
-            
-         var img = $(this).children('img').attr('src');
-
-          $(this).children('img').attr('src',img+'?a=1');
-
-
-          return false;
-        })
 
         //板块热门博客鼠标移入移出
         $('.item').mouseover(function(){
