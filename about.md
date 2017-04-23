@@ -22,6 +22,6 @@ title: 关于我
 
 <h3>联系方式</h3>
 > * 联系电话：13677111105
-> * 联系邮箱：theoceansdeep@163.com
+> * 联系邮箱：<a target="_blank" href="mailto://theoceansdeep@163.com"> theoceansdeep@163.com </a>
 > * github：<a target="_blank" href="https://github.com/aComputerGeek"> https://github.com/aComputerGeek </a>
 > * 联系q q ：1299271996
