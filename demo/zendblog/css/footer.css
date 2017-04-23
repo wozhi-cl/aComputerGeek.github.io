@@ -1,0 +1,15 @@
+.copyright {
+  background: #111;
+  font-size: 13px;
+  text-align: center;
+  color: #555555;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  border-top: 1px solid #303030;
+}
+.copyright span {
+  margin: 0 .5em;
+}
+.copyright a {
+  color: #555555;
+}
