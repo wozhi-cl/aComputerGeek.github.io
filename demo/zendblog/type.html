@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<!-- 头文件header -->
+		<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="PtHmSNsf5XLUJTrvxMF5xlQem40mnTdcMPrXNTds">
+  <meta name="author" content="蔡亮,元志强,穆洋">
+    <meta name="description" content="Zend Blog是兄弟连php175 翱翔小组三人完成的二期项目">
+  <meta name="keywords" content="博客,图片,时事,娱乐,文史,生活,健康,旅游,休闲,体育,科技,财经,汽车,艺术,人文,生活">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>Zend Blog</title>
+   <link href="/images/demo/zendblog/Zend.ico" rel="icon">
+  <!-- Bootstrap -->
+  <link href="/demo/zendblog/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/demo/zendblog/css/site.min.css" rel="stylesheet">
+  <link href="/demo/zendblog/css/footer.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/demo/zendblog/js/jquery-1.12.4.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/demo/zendblog/js/bootstrap.min.js"></script>
+  <script src="/demo/zendblog/js/masonry.pkgd.min.js"></script>
+  <script src="/demo/zendblog/js/imagesloaded.pkgd.min.js"></script>
+  
+  <style type="text/css">
+body
+{
+        margin: 0;
+        padding: 0;
+        line-height: 1.5em;
+        font-family:Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+        font-size: 14px;
+        color: #000000;
+       background: #e1e5e8;
+  
+}
+button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+
+  .navbar-nav li:hover{
+    display: block;
+    background: #625c52;
+    padding: 1px;
+}
+
+.nav > li:hover .dropdown-menu {display: block;background:#e7e5d0;} 
+
+a,a:hover{ text-decoration:none; color:#333}
+
+#masonry
+{
+  padding: 0;
+  min-height: 450px;
+  margin: 0 auto;
+}
+#masonry .thumbnail
+{
+  width: 330px;
+  margin: 20px;
+  padding: 0;
+  border-width: 1px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+#masonry .thumbnail .imgs
+{
+  padding: 10px;
+}
+#masonry .thumbnail .imgs img
+{
+  margin-bottom: 5px;
+}
+#masonry .thumbnail .caption
+{
+  background-color: #fff;
+  padding-top: 0;
+  font-size: 13px;
+}
+#masonry .thumbnail .caption .title
+{
+  font-size: 13px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.lightbox .lb-image
+{
+  max-width: none;
+}
+
+.jumbotron{
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, #194c7e 0%, #2164a6 100%) repeat scroll 0 0;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+ul.nav-pills{
+    width: 200px;
+  }
+ul.nav-pills.affix{
+    top: 30px; /* Set the top position of pinned element */
+}
+
+#myScrollspy{
+  width: 88px;height: auto; position: fixed;top: 50%;right: 15px;margin-top: -235px;  
+
+}
+
+  </style>
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+		<!-- 导航栏 naver-->
+		<!-- 导航 -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ZendBlog</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                                      <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">实事博客</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html2">社会百态</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html3">时局动态</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">娱乐博客</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html5">八卦江湖</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html6">影音评论</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">文化历史</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html8">文化传承</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html9">历史为鉴</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">健康养生</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html11">健康生活</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html12">养生之道</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">ceshi</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="https://acomputergeek.github.io/demo/zendblog/type.html14">ceshi1</a></li>
+                                                      </ul>
+                    </li>
+                                     
+            </ul>
+    <!-- 搜索框 -->
+            <form action="/search" method="get" class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" name="keyword" class="form-control" placeholder="请输入要搜索的标题">
+              </div>
+              <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+  <!--模态框 -->
+            <ul class="nav navbar-nav navbar-right">
+            <!-- 判断用户是否登陆 是否存在登陆成功后存储的id-->
+                          <li id="login">
+                  <a href="#" type="button" data-toggle="modal" data-target="#myModal">登陆</a>
+              </li>
+              <li id="register" class="dropdown">
+               <a href="/home/user/register" class="dropdown-toggle">注册</a>
+              </li>
+                           <li>　　　</li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>  
+
+    <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+          <!-- form表单 -->
+
+          <form role="form" action="" method="post">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">用户登陆</h4>
+                <center>
+                <div id="successMessage" class="alert alert-success alert-dismissable" style="display:none"></div>
+                <div id="errorMessage" class="alert alert-danger alert-dismissable" style="display:none"></div>
+                </center>
+              </div>
+
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <!-- form表单内容 -->
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="uname">用户名</label>
+                      <input id="uname" name="name" type="text" class="form-control" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                      <label for="pword">密码</label>
+                      <input id="pword" name="password" type="password" class="form-control"  placeholder="请输入密码">
+                    </div>
+                  <!-- 验证码 -->
+                    <div id="piccode" class="form-group" style="display: n one;">
+                      <div>
+                          <label for="vcode">验证码</label>
+                          <div>
+                            <input id="vcode" name="vcode" type="text" value="" class="form-control"  placeholder="验证码">
+                          </div>
+                      </div>
+                        <br>
+                         <div id="mycode">
+                             <img src="/code" alt="验证码" title="刷新图片" width="100" height="40"  border="0">　
+                             <a href="">看不清，换一张</a>
+                         </div>
+                    </div>
+                      <!-- 忘记密码 -->
+                      <div style="position: fixed;top: 72%;right:155px;">
+                          <label for="forget"><a href="http://zendblog.cn/home/user/forgetpass">忘记密码</a></label>
+                      </div>
+
+                  </div> 
+                </div> 
+              </div>    
+              <div class="modal-footer">
+              <input type="hidden" name="_token" value="PtHmSNsf5XLUJTrvxMF5xlQem40mnTdcMPrXNTds">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button id="btn" type="btn" class="btn btn-primary" >提交</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+        <form>
+      </div>
+    <!-- /.modal --> 
+
+		<!-- 内容 -->
+		
+<!-- 栏目头 -->
+	<div class="jumbotron subhead">
+	    <div class="container">
+	        <h1>Zend Blog</h1>
+              	           <p class="lead">社会百态</p>
+              	    </div>
+	</div>
+<!-- 容器开始 -->
+ <div class="container">
+	<div id="masonry" class="container-fluid"></div>
+			
+	<div id="masonry_ghost" class="hide">
+                  								<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=3"><img src="/upload/cover/14924012661362763513.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=3"><div class="title" style="text-align:center">社会百态2</div>
+						<div class="content">
+							<p>社会百态2</p></a>
+							<div style="text-align:center">
+								阅读(8) | 评论(3)<br>
+								发布时间:2017-04-17 11:54:28
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=6"><img src="/upload/cover/1492401312972382220.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=6"><div class="title" style="text-align:center">社会百态3</div>
+						<div class="content">
+							<p>社会百态3</p></a>
+							<div style="text-align:center">
+								阅读(1) | 评论(0)<br>
+								发布时间:2017-04-17 11:55:14
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=9"><img src="/upload/cover/1492401415231467264.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=9"><div class="title" style="text-align:center">社会百态4</div>
+						<div class="content">
+							<p>社会百态4</p></a>
+							<div style="text-align:center">
+								阅读(1) | 评论(0)<br>
+								发布时间:2017-04-17 11:56:57
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=12"><img src="/upload/cover/1492401439966433481.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=12"><div class="title" style="text-align:center">社会百态5</div>
+						<div class="content">
+							<p>社会百态5</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 11:57:32
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=18"><img src="/upload/cover/14924014992059997689.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=18"><div class="title" style="text-align:center">社会百态6</div>
+						<div class="content">
+							<p>社会百态6</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 11:58:22
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=20"><img src="/upload/cover/1492401522413753602.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=20"><div class="title" style="text-align:center">社会百态7</div>
+						<div class="content">
+							<p>社会百态7</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 11:58:44
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=24"><img src="/upload/cover/1492401550853530345.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=24"><div class="title" style="text-align:center">社会百态8</div>
+						<div class="content">
+							<p>社会百态8</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 11:59:12
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=64"><img src="/upload/cover/149240831661535892.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=64"><div class="title" style="text-align:center">社会百态111</div>
+						<div class="content">
+							<p>社会百态111</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 13:52:13
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=65"><img src="/upload/cover/14924083571854216853.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=65"><div class="title" style="text-align:center">社会百态222</div>
+						<div class="content">
+							<p>社会百态222</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 13:52:52
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="caption">
+						<a href="/home/center/blog?bid=72"><div class="title" style="text-align:center">社会百态9</div>
+						<div class="content">
+							<p>社会百态9社会百态9</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 14:13:02
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=73"><img src="/upload/cover/14924096251417715780.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=73"><div class="title" style="text-align:center">社会百态10</div>
+						<div class="content">
+							<p>社会百态10社会百态10</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 14:13:47
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="caption">
+						<a href="/home/center/blog?bid=74"><div class="title" style="text-align:center">社会百态10</div>
+						<div class="content">
+							<p>社会百态10社会百态10</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 14:14:07
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=75"><img src="/upload/cover/1492409685241350042.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=75"><div class="title" style="text-align:center">社会百态11</div>
+						<div class="content">
+							<p>社会百态11社会百态11</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(0)<br>
+								发布时间:2017-04-17 14:14:48
+							</div> 
+						</div>
+					</div>
+				</div>
+			   				<div class="thumbnail">
+										<div class="imgs">
+						<a href="/home/center/blog?bid=76"><img src="/upload/cover/14924097161532659388.jpeg" style="width:300px"></a>
+					</div>
+										<div class="caption">
+						<a href="/home/center/blog?bid=76"><div class="title" style="text-align:center">社会百态12</div>
+						<div class="content">
+							<p>社会百态12社会百态12</p></a>
+							<div style="text-align:center">
+								阅读(0) | 评论(1)<br>
+								发布时间:2017-04-17 14:15:19
+							</div> 
+						</div>
+					</div>
+				</div>
+			                     
+	</div>
+			
+</div>
+
+		
+
+		<!-- 底部 footer-->
+		<!-- 最底部备案 -->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span>Copyright &copy; <a href="http://www.ghostchina.com/">Zend中文网</a></span> | 
+                <span><a href="#" target="_blank">京ICP备11008151号</a></span> | 
+                <span>京公网安备11010802014853</span>
+            </div>
+        </div>
+    </div>
+</div> 
+
+		<!-- JS -->
+		<script type="text/javascript">
+       
+     /*--------------------------瀑布流-------------------*/   
+      $(function() {
+      
+      	var ghostNode = $('#masonry_ghost').find('.thumbnail'), i, ghostIndexArray = [];
+      	var ghostCount = ghostNode.length;
+      	for(i=0; i<ghostCount; i++){
+      		ghostIndexArray[i] = i; 
+      	}
+      	// ghostIndexArray.sort(function(a, b) {
+      	// 	if(Math.random() > 0.5) {
+      	// 		return a - b;
+      	// 	} else {
+      	// 		return b - a;
+      	// 	}
+      	// });
+      	
+      	var currentIndex = 0;
+      	var masNode = $('#masonry');
+      	var imagesLoading = false;
+      	
+      	
+      	function getNewItems() {
+      		var newItemContainer = $('<div/>');
+      		for(var i=0; i<6; i++) {
+      			if(currentIndex < ghostCount) {
+      				newItemContainer.append(ghostNode.get(ghostIndexArray[currentIndex]));
+      				currentIndex++;
+      			}
+      		}
+      		return newItemContainer.find('.thumbnail');
+      	}
+      	
+      	
+      	function initMasonry() {
+      		var items = getNewItems().css('opacity', 0);
+      		masNode.append(items);
+      		
+      		imagesLoading = true;
+      		items.imagesLoaded(function(){
+      			imagesLoading = false;
+      			items.css('opacity', 1);
+      			masNode.masonry({
+      				itemSelector: '.thumbnail',
+      				isFitWidth: true
+      			});
+      		});
+      	}
+      	
+      	
+      	function appendToMasonry() {
+      		var items = getNewItems().css('opacity', 0);
+      		masNode.append(items);
+      		
+      		imagesLoading = true;
+      		items.imagesLoaded(function(){
+      			imagesLoading = false;
+      			items.css('opacity', 1);
+      			masNode.masonry('appended',  items);
+      		});
+      	}
+      	
+      	
+      	initMasonry();
+      	
+      	$(window).scroll(function() {
+      		
+      		if($(document).height() - $(window).height() - $(document).scrollTop() < 100) {
+      			
+      			if(!imagesLoading) {
+      				appendToMasonry();
+      			}
+      			
+      		}
+      		
+      	});
+      	
+      	
+     });
+
+ 
+ 
+</script>
+</body>
+</html>
