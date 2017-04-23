@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<!-- 头文件header -->
+		<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="6ndwjOFhivujhptnQamc37fh78HHIb79hVCP0zHx">
+  <meta name="author" content="蔡亮,元志强,穆洋">
+    <meta name="description" content="Zend Blog是兄弟连php175 翱翔小组三人完成的二期项目">
+  <meta name="keywords" content="博客,图片,时事,娱乐,文史,生活,健康,旅游,休闲,体育,科技,财经,汽车,艺术,人文,生活">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>Zend Blog</title>
+   <link href="/upload/pub/Zend.ico" rel="icon">
+  <!-- Bootstrap -->
+  <link href="/home_dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/home_dist/css/site.min.css" rel="stylesheet">
+  <link href="/home_dist/css/footer.css" rel="stylesheet">
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/home_dist/js/jquery-1.12.4.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/home_dist/js/bootstrap.min.js"></script>
+  <script src="/home_dist/js/masonry.pkgd.min.js"></script>
+  <script src="/home_dist/js/imagesloaded.pkgd.min.js"></script>
+  
+  <style type="text/css">
+body
+{
+        margin: 0;
+        padding: 0;
+        line-height: 1.5em;
+        font-family:Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+        font-size: 14px;
+        color: #000000;
+       background: #e1e5e8;
+  
+}
+button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;}
+
+  .navbar-nav li:hover{
+    display: block;
+    background: #625c52;
+    padding: 1px;
+}
+
+.nav > li:hover .dropdown-menu {display: block;background:#e7e5d0;} 
+
+a,a:hover{ text-decoration:none; color:#333}
+
+#masonry
+{
+  padding: 0;
+  min-height: 450px;
+  margin: 0 auto;
+}
+#masonry .thumbnail
+{
+  width: 330px;
+  margin: 20px;
+  padding: 0;
+  border-width: 1px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+#masonry .thumbnail .imgs
+{
+  padding: 10px;
+}
+#masonry .thumbnail .imgs img
+{
+  margin-bottom: 5px;
+}
+#masonry .thumbnail .caption
+{
+  background-color: #fff;
+  padding-top: 0;
+  font-size: 13px;
+}
+#masonry .thumbnail .caption .title
+{
+  font-size: 13px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.lightbox .lb-image
+{
+  max-width: none;
+}
+
+.jumbotron{
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, #194c7e 0%, #2164a6 100%) repeat scroll 0 0;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+ul.nav-pills{
+    width: 200px;
+  }
+ul.nav-pills.affix{
+    top: 30px; /* Set the top position of pinned element */
+}
+
+#myScrollspy{
+  width: 88px;height: auto; position: fixed;top: 50%;right: 15px;margin-top: -235px;  
+
+}
+
+  </style>
+
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+		<!-- 导航栏 naver-->
+		<!-- 导航 -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ZendBlog</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                                                      <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">实事博客</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=2">社会百态</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=3">时局动态</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">娱乐博客</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=5">八卦江湖</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=6">影音评论</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">文化历史</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=8">文化传承</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=9">历史为鉴</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">健康养生</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=11">健康生活</a></li>
+                                                            <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=12">养生之道</a></li>
+                                                      </ul>
+                    </li>
+                                       <!-- 一级菜单 -->
+                   <li class="dropdown">
+                             <a class="dropdown-toggle" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false">ceshi</a>
+                         <ul class="dropdown-menu">
+                                                           <li role="separator" class="divider"></li>
+                               <li><a href="/menu?tid=14">ceshi1</a></li>
+                                                      </ul>
+                    </li>
+                                     
+            </ul>
+    <!-- 搜索框 -->
+            <form action="/search" method="get" class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" name="keyword" class="form-control" placeholder="请输入要搜索的标题">
+              </div>
+              <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+  <!--模态框 -->
+            <ul class="nav navbar-nav navbar-right">
+            <!-- 判断用户是否登陆 是否存在登陆成功后存储的id-->
+              <!-- 提醒框 -->
+             <li class="dropdown">
+               <a href="#"  style="display:none" class="glyphicon glyphicon-bell" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false"><span class=""></span></a>
+               <ul class="dropdown-menu">
+                 <li role="separator" class="divider"></li>
+                    <li>                 
+                       <a href="#">
+                         <div>
+                           <i class="glyphicon glyphicon-comment"></i>
+                             <span>New Comment </span>          
+                           <span class="pull-right text-muted small">4 minutes ago</span>
+                         </div>
+                      </a>
+                    </li>
+                  <li role="separator" class="divider"></li>
+                    <li>                 
+                        <a href="#">
+                          <div>
+                            <i class="glyphicon glyphicon-send"></i>
+                            <span>New Comment </span>           
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                          </div>
+                       </a>
+                     </li>
+                   <li role="separator" class="divider"></li>
+                     <li>                 
+                         <a href="#">
+                           <div>
+                             <i class="glyphicon glyphicon-envelope"></i>
+                             <span>New Comment </span>           
+                             <span class="pull-right text-muted small">4 minutes ago</span>
+                           </div>
+                        </a> 
+                    </li>
+               </ul>
+             </li>
+<!-- 个人信息框 -->
+             
+              <li class="dropdown" >
+                <a href="/home/edit/pic" class="" data-toggle="" role="button" aria-haspopup="true" aria-expanded="false"><img class="img-circle" src="/upload/pic_50_50/default.jpg" width="20px" height="20px"/></a>
+                <div class="dropdown-menu" style="text-align:center;width:250px" >
+                  <div role="separator" class="divider"></div>
+                        <div>
+                           <a href="/home/center/index?uid=1" class=""><img class="img-circle" src="/upload/pic_50_50/default.jpg" width="80px" height="80px"/></a> 
+                        </div>
+                        </br>
+                       
+                        <div>
+                          <i class="glyphicon glyphicon-heart-empty"></i>
+                            <span> <a href="/home/center/index?uid=1">adminvip</a></span>
+                        </div>
+                       
+                   <div role="separator" class="divider"></div>
+                         
+                         <div>
+                           <i class="glyphicon glyphicon-fire"></i>
+                           <span>积分:0</span>　        
+                           <span>等级:55</span>           
+                         </div>
+                         
+                    <div role="separator" class="divider"></div>
+                          
+                        <div>
+                          <i class="glyphicon glyphicon-log-out"></i>
+                          <span><a href="/home/user/loginout">安全退出</a> </span>           
+                        </div>
+                </div>
+              </li>
+                            <li>　　　</li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>  
+
+    <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+          <!-- form表单 -->
+
+          <form role="form" action="" method="post">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">用户登陆</h4>
+                <center>
+                <div id="successMessage" class="alert alert-success alert-dismissable" style="display:none"></div>
+                <div id="errorMessage" class="alert alert-danger alert-dismissable" style="display:none"></div>
+                </center>
+              </div>
+
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <!-- form表单内容 -->
+                  <div class="modal-body">
+                    <div class="form-group">
+                      <label for="uname">用户名</label>
+                      <input id="uname" name="name" type="text" class="form-control" placeholder="请输入用户名">
+                    </div>
+                    <div class="form-group">
+                      <label for="pword">密码</label>
+                      <input id="pword" name="password" type="password" class="form-control"  placeholder="请输入密码">
+                    </div>
+                  <!-- 验证码 -->
+                    <div id="piccode" class="form-group" style="display: n one;">
+                      <div>
+                          <label for="vcode">验证码</label>
+                          <div>
+                            <input id="vcode" name="vcode" type="text" value="" class="form-control"  placeholder="验证码">
+                          </div>
+                      </div>
+                        <br>
+                         <div id="mycode">
+                             <img src="/code" alt="验证码" title="刷新图片" width="100" height="40"  border="0">　
+                             <a href="">看不清，换一张</a>
+                         </div>
+                    </div>
+                      <!-- 忘记密码 -->
+                      <div style="position: fixed;top: 72%;right:155px;">
+                          <label for="forget"><a href="http://zendblog.cn/home/user/forgetpass">忘记密码</a></label>
+                      </div>
+
+                  </div> 
+                </div> 
+              </div>    
+              <div class="modal-footer">
+              <input type="hidden" name="_token" value="6ndwjOFhivujhptnQamc37fh78HHIb79hVCP0zHx">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+              <button id="btn" type="btn" class="btn btn-primary" >提交</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+        <form>
+      </div>
+    <!-- /.modal --> 
+
+		<!-- 内容 -->
+		
+<div class="row" id="rightnav" style="display:none">
+    <div class="col-xs-3" id="myScrollspy">
+        <ul class="nav nav-pills nav-stacked" id="myNav">
+                                <li class="active"><a href="#实事博客">实事博客</a></li>
+                        <li class=""><a href="#娱乐博客">娱乐博客</a></li>
+                        <li class=""><a href="#文化历史">文化历史</a></li>
+                        <li class=""><a href="#健康养生">健康养生</a></li>
+                        <li class=""><a href="#ceshi">ceshi</a></li>
+                        
+        </ul>
+    </div>
+</div>
+<!-- 容器 -->
+<div class="container" style="margin-top: 60px;">
+      <!--轮播-->
+   <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+               
+                                   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                   <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                 </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                                    <div class="item active">
+                    <img src="/upload/ad/14924088401946305279.jpeg" alt="...">
+                    <div class="carousel-caption">
+                   
+                    </div>
+                  </div>
+                                    <div class="item ">
+                    <img src="/upload/ad/1492408973292536741.jpeg" alt="...">
+                    <div class="carousel-caption">
+                   
+                    </div>
+                  </div>
+                                                 </div>
+
+               <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+      </div>   
+  </div>
+    <!-- 空行 -->
+        <div class="row">
+          <div class="col-md-12" style="height:80px"></div>
+        </div>
+
+        <!-- 排行榜 -->
+    <div class="row">
+                               <div class="col-md-3">
+                         <div class="panel panel-default">
+                             <div class="panel-heading" style="text-align:center;color:red">  
+                                                                 <h4>今</h4>
+                                                             </div>
+                             <div class="panel-body" >
+
+                                                         
+                                <p> <font style="font-size:18px; color:red;">1.</font>
+                                <a href="/home/center/blog?bid=49" class="item"> <strong>文化一</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">2.</font>
+                                <a href="/home/center/blog?bid=22" class="item"> <strong>影音二</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">3.</font>
+                                <a href="/home/center/blog?bid=2" class="item"> <strong>实时一</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">4.</font>
+                                <a href="/home/center/blog?bid=3" class="item"> <strong>社会百态2</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">5.</font>
+                                <a href="/home/center/blog?bid=4" class="item"> <strong>实时二</strong></a></p>
+                                                         </div>
+             
+                             <!-- /.panel-body -->
+                         </div>
+                         <!-- /.panel -->
+              </div>
+                         <div class="col-md-3">
+                         <div class="panel panel-default">
+                             <div class="panel-heading" style="text-align:center;color:red">  
+                                 
+                                 <h4>日</h4>
+                                                             </div>
+                             <div class="panel-body" >
+
+                                                         
+                                <p> <font style="font-size:18px; color:red;">6.</font>
+                                <a href="/home/center/blog?bid=5" class="item"> <strong>实时三</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">7.</font>
+                                <a href="/home/center/blog?bid=6" class="item"> <strong>社会百态3</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">8.</font>
+                                <a href="/home/center/blog?bid=16" class="item"> <strong>实时八</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">9.</font>
+                                <a href="/home/center/blog?bid=42" class="item"> <strong>养生之道8</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">10.</font>
+                                <a href="/home/center/blog?bid=9" class="item"> <strong>社会百态4</strong></a></p>
+                                                         </div>
+             
+                             <!-- /.panel-body -->
+                         </div>
+                         <!-- /.panel -->
+              </div>
+                         <div class="col-md-3">
+                         <div class="panel panel-default">
+                             <div class="panel-heading" style="text-align:center;color:red">  
+                                 
+                                 <h4>热</h4>
+                                                             </div>
+                             <div class="panel-body" >
+
+                                                         
+                                <p> <font style="font-size:18px; color:red;">11.</font>
+                                <a href="/home/center/blog?bid=28" class="item"> <strong>八卦江湖1</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">12.</font>
+                                <a href="/home/center/blog?bid=52" class="item"> <strong>文化三</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">13.</font>
+                                <a href="/home/center/blog?bid=58" class="item"> <strong>历史为鉴定111</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">14.</font>
+                                <a href="/home/center/blog?bid=63" class="item"> <strong>文化传承222</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">15.</font>
+                                <a href="/home/center/blog?bid=82" class="item"> <strong>养生之道15</strong></a></p>
+                                                         </div>
+             
+                             <!-- /.panel-body -->
+                         </div>
+                         <!-- /.panel -->
+              </div>
+                         <div class="col-md-3">
+                         <div class="panel panel-default">
+                             <div class="panel-heading" style="text-align:center;color:red">  
+                                 
+                                 <h4>门</h4>
+                                                             </div>
+                             <div class="panel-body" >
+
+                                                         
+                                <p> <font style="font-size:18px; color:red;">16.</font>
+                                <a href="/home/center/blog?bid=86" class="item"> <strong>ceshi1</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">17.</font>
+                                <a href="/home/center/blog?bid=13" class="item"> <strong>实时七</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">18.</font>
+                                <a href="/home/center/blog?bid=14" class="item"> <strong>健康生活2</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">19.</font>
+                                <a href="/home/center/blog?bid=15" class="item"> <strong>健康生活3</strong></a></p>
+                                                         
+                                <p> <font style="font-size:18px; color:red;">20.</font>
+                                <a href="/home/center/blog?bid=17" class="item"> <strong>健康生活4</strong></a></p>
+                                                         </div>
+             
+                             <!-- /.panel-body -->
+                         </div>
+                         <!-- /.panel -->
+              </div>
+                              
+    </div>
+
+  <!-- 空行 长广告-->
+      <div class="row">
+        <div class="col-md-12" style="height:20px"></div>
+          <div class="col-md-10 col-md-offset-1">
+                     </div>
+      </div>
+
+        <!-- 博文展示 1-->
+ <div class="row"> 
+                      <!-- 空行 -->
+                <div class="row"  id="实事博客">
+                  <div class="col-md-12" style="height:25px"></div>
+                </div>
+                
+            <div class="col-lg-9">
+                     <div class="panel panel-default">
+                          <div class="panel-heading">
+                                    <h3>实事博客</h3>
+                              </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+
+                                                                                        
+                                        <li class="active"><a href=".2" data-toggle="tab" aria-expanded="true">社会百态</a></li>
+                                                  
+                                                                                       
+                                        <li class=""><a href=".3" data-toggle="tab" aria-expanded="false">时局动态</a></li>
+                                                  
+                                                                            </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                                                                                                      <div class="tab-pane fade active in 2">
+                                                                                         
+                                            <a href="/home/center/blog?bid=76" class="titles" ><h4>社会百态12</h4>
+                                            <p>社会百态12社会百态12</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=75" class="titles" ><h4>社会百态11</h4>
+                                            <p>社会百态11社会百态11</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=74" class="titles" ><h4>社会百态10</h4>
+                                            <p>社会百态10社会百态10</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=73" class="titles" ><h4>社会百态10</h4>
+                                            <p>社会百态10社会百态10</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=72" class="titles" ><h4>社会百态9</h4>
+                                            <p>社会百态9社会百态9</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=65" class="titles" ><h4>社会百态222</h4>
+                                            <p>社会百态222</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=64" class="titles" ><h4>社会百态111</h4>
+                                            <p>社会百态111</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=24" class="titles" ><h4>社会百态8</h4>
+                                            <p>社会百态8</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                <div class="tab-pane fade  3">
+                                                                                         
+                                            <a href="/home/center/blog?bid=16" class="titles" ><h4>实时八</h4>
+                                            <p>实时八</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=13" class="titles" ><h4>实时七</h4>
+                                            <p>实时七</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=10" class="titles" ><h4>实时六</h4>
+                                            <p>实时六</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=8" class="titles" ><h4>实时五</h4>
+                                            <p>实时五</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=7" class="titles" ><h4>实时四</h4>
+                                            <p>实时四</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=5" class="titles" ><h4>实时三</h4>
+                                            <p>实时三</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=4" class="titles" ><h4>实时二</h4>
+                                            <p>实时二</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=2" class="titles" ><h4>实时一</h4>
+                                            <p></p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                                                  </div>
+                                </div>
+                                <!-- /.panel-body -->
+                    </div>
+                            <!-- /.panel -->
+               </div>
+         <div class="col-lg-3 tab-content">
+                                             <div class="tab-pane fade active in 2">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=76" class="titles3"><div style="text-align:center" >
+                        <h5>社会百态12</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924097161532659388.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=75" class="titles3"><div style="text-align:center" >
+                        <h5>社会百态11</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492409685241350042.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=73" class="titles3"><div style="text-align:center" >
+                        <h5>社会百态10</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924096251417715780.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                  <div class="tab-pane fade  3">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=16" class="titles3"><div style="text-align:center" >
+                        <h5>实时八</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492401485894222922.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=13" class="titles3"><div style="text-align:center" >
+                        <h5>实时七</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924014561506853909.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=10" class="titles3"><div style="text-align:center" >
+                        <h5>实时六</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492401428759223887.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                      </div>
+      <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+                  <!-- 空行 -->
+                <div class="row"  id="娱乐博客">
+                  <div class="col-md-12" style="height:25px"></div>
+                </div>
+                
+            <div class="col-lg-9">
+                     <div class="panel panel-default">
+                          <div class="panel-heading">
+                                    <h3>娱乐博客</h3>
+                              </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+
+                                                                                        
+                                        <li class="active"><a href=".5" data-toggle="tab" aria-expanded="true">八卦江湖</a></li>
+                                                  
+                                                                                       
+                                        <li class=""><a href=".6" data-toggle="tab" aria-expanded="false">影音评论</a></li>
+                                                  
+                                                                            </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                                                                                                      <div class="tab-pane fade active in 5">
+                                                                                         
+                                            <a href="/home/center/blog?bid=87" class="titles" ><h4>fsafdsa</h4>
+                                            <p>fdsas</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=48" class="titles" ><h4>八卦江湖8</h4>
+                                            <p>八卦江湖8</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=47" class="titles" ><h4>八卦江湖7</h4>
+                                            <p>八卦江湖7</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=46" class="titles" ><h4>八卦江湖6</h4>
+                                            <p>八卦江湖6</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=45" class="titles" ><h4>八卦江湖5</h4>
+                                            <p>八卦江湖5</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=44" class="titles" ><h4>八卦江湖4</h4>
+                                            <p>八卦江湖4</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=38" class="titles" ><h4>八卦江湖3</h4>
+                                            <p>八卦江湖3</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=34" class="titles" ><h4>八卦江湖2</h4>
+                                            <p>八卦江湖2</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                <div class="tab-pane fade  6">
+                                                                                         
+                                            <a href="/home/center/blog?bid=43" class="titles" ><h4>影音八</h4>
+                                            <p>影音八</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=40" class="titles" ><h4>影音七</h4>
+                                            <p>影音七</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=37" class="titles" ><h4>影音六</h4>
+                                            <p>影音六</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=30" class="titles" ><h4>影音五</h4>
+                                            <p>影音五</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=29" class="titles" ><h4>影音四</h4>
+                                            <p>影音四</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=26" class="titles" ><h4>影音三</h4>
+                                            <p>影音三</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=22" class="titles" ><h4>影音二</h4>
+                                            <p>影音二</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=19" class="titles" ><h4>影音一</h4>
+                                            <p>影音一</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                                                  </div>
+                                </div>
+                                <!-- /.panel-body -->
+                    </div>
+                            <!-- /.panel -->
+               </div>
+         <div class="col-lg-3 tab-content">
+                                             <div class="tab-pane fade active in 5">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=48" class="titles3"><div style="text-align:center" >
+                        <h5>八卦江湖8</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924079181716209757.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=46" class="titles3"><div style="text-align:center" >
+                        <h5>八卦江湖6</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924078621197017475.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=45" class="titles3"><div style="text-align:center" >
+                        <h5>八卦江湖5</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924078291954606058.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                  <div class="tab-pane fade  6">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=43" class="titles3"><div style="text-align:center" >
+                        <h5>影音八</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492401808102291492.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=40" class="titles3"><div style="text-align:center" >
+                        <h5>影音七</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924017841159625082.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=37" class="titles3"><div style="text-align:center" >
+                        <h5>影音六</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492401756932547881.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                      </div>
+      <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+                  <!-- 空行 -->
+                <div class="row"  id="文化历史">
+                  <div class="col-md-12" style="height:25px"></div>
+                </div>
+                
+            <div class="col-lg-9">
+                     <div class="panel panel-default">
+                          <div class="panel-heading">
+                                    <h3>文化历史</h3>
+                              </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+
+                                                                                        
+                                        <li class="active"><a href=".8" data-toggle="tab" aria-expanded="true">文化传承</a></li>
+                                                  
+                                                                                       
+                                        <li class=""><a href=".9" data-toggle="tab" aria-expanded="false">历史为鉴</a></li>
+                                                  
+                                                                            </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                                                                                                      <div class="tab-pane fade active in 8">
+                                                                                         
+                                            <a href="/home/center/blog?bid=63" class="titles" ><h4>文化传承222</h4>
+                                            <p>文化传承222</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=61" class="titles" ><h4>文化八</h4>
+                                            <p>文化八</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=59" class="titles" ><h4>文化七</h4>
+                                            <p>文化七</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=57" class="titles" ><h4>文化六</h4>
+                                            <p>文化六</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=56" class="titles" ><h4>文化五</h4>
+                                            <p>文化五</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=54" class="titles" ><h4>文化四</h4>
+                                            <p>文化四</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=52" class="titles" ><h4>文化三</h4>
+                                            <p>文化三</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=50" class="titles" ><h4>文化二</h4>
+                                            <p>文化二</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                <div class="tab-pane fade  9">
+                                                                                         
+                                            <a href="/home/center/blog?bid=71" class="titles" ><h4>历史为鉴888</h4>
+                                            <p>历史为鉴888</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=67" class="titles" ><h4>历史为鉴444</h4>
+                                            <p>历史为鉴444</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=66" class="titles" ><h4>历史为鉴333</h4>
+                                            <p>历史为鉴333</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=60" class="titles" ><h4>历史为鉴定222</h4>
+                                            <p>历史为鉴定222</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=58" class="titles" ><h4>历史为鉴定111</h4>
+                                            <p>历史为鉴定111</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=68" class="titles" ><h4>历史为鉴555</h4>
+                                            <p>历史为鉴555</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=69" class="titles" ><h4>历史为鉴666</h4>
+                                            <p>历史为鉴666</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=70" class="titles" ><h4>历史为鉴777</h4>
+                                            <p>历史为鉴777</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                                                  </div>
+                                </div>
+                                <!-- /.panel-body -->
+                    </div>
+                            <!-- /.panel -->
+               </div>
+         <div class="col-lg-3 tab-content">
+                                             <div class="tab-pane fade active in 8">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=63" class="titles3"><div style="text-align:center" >
+                        <h5>文化传承222</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924082271971122180.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=61" class="titles3"><div style="text-align:center" >
+                        <h5>文化八</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924081641398728068.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=59" class="titles3"><div style="text-align:center" >
+                        <h5>文化七</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924081101115992849.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                  <div class="tab-pane fade  9">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=67" class="titles3"><div style="text-align:center" >
+                        <h5>历史为鉴444</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924084571510041381.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=66" class="titles3"><div style="text-align:center" >
+                        <h5>历史为鉴333</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924084441559614650.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=60" class="titles3"><div style="text-align:center" >
+                        <h5>历史为鉴定222</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924081271393794289.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                      </div>
+      <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+                  <!-- 空行 -->
+                <div class="row"  id="健康养生">
+                  <div class="col-md-12" style="height:25px"></div>
+                </div>
+                
+            <div class="col-lg-9">
+                     <div class="panel panel-default">
+                          <div class="panel-heading">
+                                    <h3>健康养生</h3>
+                              </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+
+                                                                                        
+                                        <li class="active"><a href=".11" data-toggle="tab" aria-expanded="true">健康生活</a></li>
+                                                  
+                                                                                       
+                                        <li class=""><a href=".12" data-toggle="tab" aria-expanded="false">养生之道</a></li>
+                                                  
+                                                                            </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                                                                                                      <div class="tab-pane fade active in 11">
+                                                                                         
+                                            <a href="/home/center/blog?bid=55" class="titles" ><h4>健康生活8</h4>
+                                            <p>健康生活8健康生活8</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=53" class="titles" ><h4>健康生活7</h4>
+                                            <p>健康生活7健康生活7</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=51" class="titles" ><h4>健康生活6</h4>
+                                            <p>健康生活6健康生活6</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=21" class="titles" ><h4>健康生活5</h4>
+                                            <p>  健康生活5健康生活5</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=17" class="titles" ><h4>健康生活4</h4>
+                                            <p>健康生活4健康生活4</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=14" class="titles" ><h4>健康生活2</h4>
+                                            <p>健康生活2健康生活2</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=11" class="titles" ><h4>健康生活1</h4>
+                                            <p>健康生活1健康生活1</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                <div class="tab-pane fade  12">
+                                                                                         
+                                            <a href="/home/center/blog?bid=84" class="titles" ><h4>健康养生21</h4>
+                                            <p>健康养生21健康养生21</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=83" class="titles" ><h4>养眼</h4>
+                                            <p>养眼</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=82" class="titles" ><h4>养生之道15</h4>
+                                            <p>养生之道15养生之道15养生之道15</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=81" class="titles" ><h4>养生之道14</h4>
+                                            <p>养生之道14养生之道14</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=80" class="titles" ><h4>养生之道13</h4>
+                                            <p>养生之道13养生之道13</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=79" class="titles" ><h4>养生之道12</h4>
+                                            <p>养生之道12养生之道12</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=78" class="titles" ><h4>养生之道11</h4>
+                                            <p>养生之道11养生之道11</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=77" class="titles" ><h4>养生之道10</h4>
+                                            <p>养生之道10养生之道10</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                                                  </div>
+                                </div>
+                                <!-- /.panel-body -->
+                    </div>
+                            <!-- /.panel -->
+               </div>
+         <div class="col-lg-3 tab-content">
+                                             <div class="tab-pane fade active in 11">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=53" class="titles3"><div style="text-align:center" >
+                        <h5>健康生活7</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924080211251598629.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=51" class="titles3"><div style="text-align:center" >
+                        <h5>健康生活6</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924079842042808595.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=21" class="titles3"><div style="text-align:center" >
+                        <h5>健康生活5</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492401523122841465.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                  <div class="tab-pane fade  12">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=84" class="titles3"><div style="text-align:center" >
+                        <h5>健康养生21</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/1492438434779118206.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=83" class="titles3"><div style="text-align:center" >
+                        <h5>养眼</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924138071079129266.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=82" class="titles3"><div style="text-align:center" >
+                        <h5>养生之道15</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924100351889833186.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                      </div>
+      <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+                  <!-- 空行 -->
+                <div class="row"  id="ceshi">
+                  <div class="col-md-12" style="height:25px"></div>
+                </div>
+                
+            <div class="col-lg-9">
+                     <div class="panel panel-default">
+                          <div class="panel-heading">
+                                    <h3>ceshi</h3>
+                              </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs">
+
+                                                                                        
+                                        <li class="active"><a href=".14" data-toggle="tab" aria-expanded="true">ceshi1</a></li>
+                                                  
+                                                                            </ul>
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                                                                                                      <div class="tab-pane fade active in 14">
+                                                                                         
+                                            <a href="/home/center/blog?bid=88" class="titles" ><h4>ceshi1 </h4>
+                                            <p>ceshi1 ceshi1 ceshi1 ceshi1 ceshi1 ceshi1 </p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=86" class="titles" ><h4>ceshi1</h4>
+                                            <p>ceshi1</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                                                                         
+                                            <a href="/home/center/blog?bid=85" class="titles" ><h4>ceshi1</h4>
+                                            <p>ceshi1</p>
+                                            </a>
+                                          <div class="row">
+                                            <div class="col-md-12" style="height:2px"></div>
+                                          </div>
+                                               
+                                        </div>
+                                                                                                                  </div>
+                                </div>
+                                <!-- /.panel-body -->
+                    </div>
+                            <!-- /.panel -->
+               </div>
+         <div class="col-lg-3 tab-content">
+                                             <div class="tab-pane fade active in 14">
+                                         <div class="thumbnail">
+                      <a href="/home/center/blog?bid=88" class="titles3"><div style="text-align:center" >
+                        <h5>ceshi1 </h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14925340949363.jpeg" >
+                      </div></a>
+                    </div>
+                                           <div class="thumbnail">
+                      <a href="/home/center/blog?bid=86" class="titles3"><div style="text-align:center" >
+                        <h5>ceshi1</h5>         
+                      </div>
+                      <div class="thumbnail">
+                      <img class="img-rounded" src="/upload/cover/14924780791806063430.jpeg" >
+                      </div></a>
+                    </div>
+                       
+                  </div>
+                                      </div>
+      <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+            
+ </div>
+        <!-- 空行 -->
+          <div class="row">
+            <div class="col-md-12" style="height:10px"></div>
+          </div>
+
+      
+      <!-- 空行 短广告-->
+          <div class="row">
+                       
+            <div class="col-md-6">
+                <img src="/upload/ad/14924090781770260404.jpeg" width="100%">
+            </div>
+                        
+          </div>
+
+  <!-- 空行 -->
+      <div class="row">
+        <div class="col-md-12" style="height:60px"></div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="text-align:center">
+              <h3>博客总排行</h3>
+        </div>
+      </div>
+
+  <!-- 热门博主展示 -->
+    <div class="row"  style="text-align:center">
+    
+             <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            实事博客
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table table-striped table-bordered table-hover ">
+                                      <thead>
+                                          <tr class="danger" >
+                                              <th style="text-align:center">Top3</th>
+                                              <th style="text-align:center">标题</th>
+                                              <th style="text-align:center">总点击</th>
+                                              <th style="text-align:center">博主</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                                                                                                 
+                                          <tr>
+                                              <td>1</td>
+                                              <td><a href="/home/center/blog?bid=3" class="titles1">社会百态2</a></td>
+                                              <td>8</td>
+                                              <td><a href="/home/center/index?uid=2" class="titles2">12345678</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>2</td>
+                                              <td><a href="/home/center/blog?bid=6" class="titles1">社会百态3</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>3</td>
+                                              <td><a href="/home/center/blog?bid=2" class="titles1">实时一</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                                                             </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                        </div>
+                          <!-- /.panel-body -->
+                  </div>
+                      <!-- /.panel -->
+           </div>   
+              <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            娱乐博客
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table table-striped table-bordered table-hover ">
+                                      <thead>
+                                          <tr class="danger" >
+                                              <th style="text-align:center">Top3</th>
+                                              <th style="text-align:center">标题</th>
+                                              <th style="text-align:center">总点击</th>
+                                              <th style="text-align:center">博主</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                                                                                                 
+                                          <tr>
+                                              <td>1</td>
+                                              <td><a href="/home/center/blog?bid=28" class="titles1">八卦江湖1</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>2</td>
+                                              <td><a href="/home/center/blog?bid=22" class="titles1">影音二</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>3</td>
+                                              <td><a href="/home/center/blog?bid=19" class="titles1">影音一</a></td>
+                                              <td>0</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                                                             </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                        </div>
+                          <!-- /.panel-body -->
+                  </div>
+                      <!-- /.panel -->
+           </div>   
+              <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            文化历史
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table table-striped table-bordered table-hover ">
+                                      <thead>
+                                          <tr class="danger" >
+                                              <th style="text-align:center">Top3</th>
+                                              <th style="text-align:center">标题</th>
+                                              <th style="text-align:center">总点击</th>
+                                              <th style="text-align:center">博主</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                                                                                                 
+                                          <tr>
+                                              <td>1</td>
+                                              <td><a href="/home/center/blog?bid=49" class="titles1">文化一</a></td>
+                                              <td>2</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>2</td>
+                                              <td><a href="/home/center/blog?bid=52" class="titles1">文化三</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>3</td>
+                                              <td><a href="/home/center/blog?bid=63" class="titles1">文化传承222</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=5" class="titles2">87654321</a></td>
+                                          </tr>
+                                                                                                                             </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                        </div>
+                          <!-- /.panel-body -->
+                  </div>
+                      <!-- /.panel -->
+           </div>   
+              <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            健康养生
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table table-striped table-bordered table-hover ">
+                                      <thead>
+                                          <tr class="danger" >
+                                              <th style="text-align:center">Top3</th>
+                                              <th style="text-align:center">标题</th>
+                                              <th style="text-align:center">总点击</th>
+                                              <th style="text-align:center">博主</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                                                                                                 
+                                          <tr>
+                                              <td>1</td>
+                                              <td><a href="/home/center/blog?bid=42" class="titles1">养生之道8</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=3" class="titles2">muyang123</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>2</td>
+                                              <td><a href="/home/center/blog?bid=82" class="titles1">养生之道15</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=3" class="titles2">muyang123</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>3</td>
+                                              <td><a href="/home/center/blog?bid=84" class="titles1">健康养生21</a></td>
+                                              <td>0</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                                                             </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                        </div>
+                          <!-- /.panel-body -->
+                  </div>
+                      <!-- /.panel -->
+           </div>   
+              <div class="col-lg-6">
+                      <div class="panel panel-default">
+                          <div class="panel-heading">
+                            ceshi
+                          </div>
+                          <!-- /.panel-heading -->
+                          <div class="panel-body">
+                              <div class="table-responsive">
+                                  <table class="table table-striped table-bordered table-hover ">
+                                      <thead>
+                                          <tr class="danger" >
+                                              <th style="text-align:center">Top3</th>
+                                              <th style="text-align:center">标题</th>
+                                              <th style="text-align:center">总点击</th>
+                                              <th style="text-align:center">博主</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                                                                                                 
+                                          <tr>
+                                              <td>1</td>
+                                              <td><a href="/home/center/blog?bid=86" class="titles1">ceshi1</a></td>
+                                              <td>1</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>2</td>
+                                              <td><a href="/home/center/blog?bid=85" class="titles1">ceshi1</a></td>
+                                              <td>0</td>
+                                              <td><a href="/home/center/index?uid=1" class="titles2">adminvip</a></td>
+                                          </tr>
+                                                                                          
+                                          <tr>
+                                              <td>3</td>
+                                              <td><a href="/home/center/blog?bid=88" class="titles1">ceshi1 </a></td>
+                                              <td>0</td>
+                                              <td><a href="/home/center/index?uid=2" class="titles2">12345678</a></td>
+                                          </tr>
+                                                                                                                             </tbody>
+                                  </table>
+                              </div>
+                              <!-- /.table-responsive -->
+                        </div>
+                          <!-- /.panel-body -->
+                  </div>
+                      <!-- /.panel -->
+           </div>   
+        
+               
+    </div>    
+</div>
+
+
+<!-- 友情链接 flink-->
+<!-- 底部友情链接 -->
+<footer class="main-footer">
+       <div class="container">
+           <div class="row">
+               <div class="col-sm-4">
+                   <div class="widget">
+                       <h4 class="title">友情链接</h4>
+                       
+                                              <div class="content friend-links">
+                           <a href="http://www.baidu.com/" title="百度中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', '百度中文网'])" target="_blank">百度中文网</a>
+                       </div>
+                                              <div class="content friend-links">
+                           <a href="http://www.sohu.cn/" title="搜狐中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', '搜狐中文网'])" target="_blank">搜狐中文网</a>
+                       </div>
+                                              <div class="content friend-links">
+                           <a href="http://www.sina.com.cn/" title="新浪中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', '新浪中文网'])" target="_blank">新浪中文网</a>
+                       </div>
+                                              <div class="content friend-links">
+                           <a href="http://zendblog.org/" title="博客中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', '博客中文网'])" target="_blank">博客中文网</a>
+                       </div>
+                                              
+                   </div>
+               </div>
+
+               <div class="col-sm-4">
+                   <div class="widget">
+                       <h4 class="title">我们用到的技术</h4>
+                       <div class="content tag-cloud">
+                           <a href="http://www.bootcss.com/" title="Bootstrap中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Bootstrap中文网'])" target="_blank">Bootstrap</a>
+                           <a href="http://www.ghostchina.com/" title="Ghost中国" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Ghost中国'])" target="_blank">Ghost</a>
+                           <a href="http://www.bootcdn.cn/" title="BootCDN" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'BootCDN'])" target="_blank">BootCDN</a>
+                           <a href="http://www.gruntjs.net/" title="Grunt中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Grunt中文网'])" target="_blank">Grunt</a>
+                           <a href="http://www.jquery123.com/" title="jQuery中文文档" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'jQuery中文文档'])" target="_blank">jQuery</a>
+                           <a href="http://babeljs.cn/" title="Babeljs中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Babeljs中文网'])" target="_blank">Babeljs</a>
+                           <a href="http://lodashjs.com/" title="lodash中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Lodash中文网'])" target="_blank">Lodash</a>
+                           <a href="http://www.gulpjs.com.cn/" title="Gulp中文网" onclick="_hmt.push(['_trackEvent', 'link', 'click', 'Gulp中文网'])" target="_blank">Gulp</a>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-sm-4">
+                   <div class="widget">
+                       <h4 class="title">赞助商</h4>
+                       <div class="content friend-links">
+                           <a href="https://www.upyun.com/" title="又拍云" onclick="_hmt.push(['_trackEvent', 'link', 'click', '又拍云'])" target="_blank">又拍云</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+</footer> 
+		
+
+		<!-- 底部 footer-->
+		<!-- 最底部备案 -->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span>Copyright &copy; <a href="http://www.ghostchina.com/">Zend中文网</a></span> | 
+                <span><a href="#" target="_blank">京ICP备11008151号</a></span> | 
+                <span>京公网安备11010802014853</span>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<script>
+	$(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        function rem(){
+		    $.post('/home/center/remind',{},function(data){
+		        if(data)
+		        {
+		        	alert('你有一条新的回复');
+		        	rem();
+		        }
+	       });
+        }
+
+        rem();
+	});
+
+</script> 
+
+		<!-- JS -->
+		   <script type="text/javascript">
+
+        //点击提交触发事件
+        $('#btn').click(function(){
+          
+          //获取用户名跟密码
+          var uname = $('#uname').val();
+          var pword = $('#pword').val();
+          var vcode = $('#vcode').val();
+
+          $.ajaxSetup({
+              headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+          }); 
+          //发送ajax
+          $.ajax({
+              url:'/home/user/login',
+              type:'post',
+              data:{uname:uname,pword:pword,vcode:vcode},
+              datatype:'json',
+              success:function(data){
+                if(data==1){
+                    $('#successMessage').text('恭喜您,登陆成功!').fadeIn(500);
+                    setTimeout(function(){
+                        $('#successMessage').fadeOut(1500);
+                        //登陆成功模态框消失
+                        // $('#myModal').modal('hide');
+                        location.href = location.href;
+
+                    },1500);
+   
+                }else if(data==0){
+
+                    $('#errorMessage').text('抱歉,您输入的用户名不存在!').fadeIn(500);
+                  
+
+                    $('#errorMessage').fadeOut(3000);
+                   
+                }else if(data==2){
+                    $('#errorMessage').text('抱歉,您的密码输入错误!').fadeIn(500);
+                
+
+                    $('#errorMessage').fadeOut(3000);
+                  
+                }else if(data == 3){
+                    $('#errorMessage').text('抱歉,您的验证码输入错误!').fadeIn(500);
+                   
+
+                    $('#errorMessage').fadeOut(3000);
+                       
+                   
+                }else if(data==5){
+
+                   $('#errorMessage').text('抱歉,您的账号已被限制登录!').fadeIn(500);
+                   
+
+                    $('#errorMessage').fadeOut(3000);
+                }
+
+              },
+              async:false,
+          })
+
+          return false;
+        })
+
+       // 点击更换验证码
+        $('#mycode').click(function(){
+            
+         var img = $(this).children('img').attr('src');
+
+          $(this).children('img').attr('src',img+'?a=1');
+
+
+          return false;
+        })
+
+        //板块热门博客鼠标移入移出
+        $('.item').mouseover(function(){
+
+          $(this).css('color','red')
+        })
+
+        $('.item').mouseout(function(){
+
+          $(this).css('color','#333')
+        })
+
+
+          //博文展示鼠标移入移出
+        $('.titles').mouseover(function(){
+         
+          $(this).css('color','red')
+        })
+
+        $('.titles').mouseout(function(){
+
+          $(this).css('color','#333')
+        })
+
+          //热门博主鼠标移入移出
+        $('.titles1').mouseover(function(){
+         
+          $(this).css('color','red')
+        })
+
+        $('.titles1').mouseout(function(){
+
+          $(this).css('color','#333')
+        })
+
+          //热门博主鼠标移入移出
+        $('.titles2').mouseover(function(){
+         
+          $(this).css('color','red')
+        })
+
+        $('.titles2').mouseout(function(){
+
+          $(this).css('color','#333')
+        })
+
+            //博文展示图片鼠标移入移出
+        $('.titles3').mouseover(function(){
+         
+          $(this).css('color','red')
+        })
+
+        $('.titles3').mouseout(function(){
+
+          $(this).css('color','#333')
+        })
+
+        //滚动后导航固定
+      $(function(){
+        $(window).scroll(function(){
+                 height = $(window).scrollTop();
+                  if(height > 1000){
+                    $('#rightnav').fadeIn();
+                  }else{
+                    $('#rightnav').fadeOut();
+                  };
+       });
+    });
+
+     
+   </script>
+</body>
+</html>
