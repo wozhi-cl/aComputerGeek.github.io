@@ -35,31 +35,21 @@ tag: php
 3.  填充到模板
 4.  呈现给用户
 
-    php文件执行顺序：
-```
-graph LR
-    a(语法分析) --> b(编译)
-    b --> c(运行)
+php文件执行顺序：
 
-```
+    语法分析 --> 编译 --> 运行
+
+
 ### 静态页面
 静态页面：直接呈现
     
     静态html文件执行顺序：
-```
-graph TD
-    a(运行)
-```
+			直接运行
+
 
 ## 静态化介绍
 
-```
-graph LR
-    a(php静态化) --> b1(纯静态)
-    a --> b2(伪静态)
-    b1 --> c1(局部静态)
-    b1 --> c2(全部纯净态)
-```    
+![](/images/posts/php/page_static.png)
 
 ## buffer认知
 
@@ -68,12 +58,8 @@ graph LR
 我们平常在文件中输入一些字符，按下保存时，内容并不是直接保存到磁盘中，而是储存到一个buffer中，当buffer中的内容装满的时候，再存入磁盘中
     
 php中的输出流程
-```
-graph LR
-    a(输出语句) --> b(php buffer) 
-    b --> c(tcp)
-    c --> d(终端)
-```
+![](/images/posts/php/output_buffering.png)
+
 ### 开启output_buffering (php5.6默认开启)
 
 1.php.ini
@@ -103,13 +89,8 @@ graph LR
 * crontab定时任务
 
 ### 页面添加缓存时间
+![](/images/posts/php/sessionToStatic.png)
 
-```
-graph TD
-    a(用户请求页面) --> b(页面时间是否过期)
-    b -->|是| c(动态页面并生成一份新的静态页面)
-    b -->|否| d(获取静态页面)
-```
 ### crontab定时任务
 
 linux系统工具
@@ -127,10 +108,13 @@ linux系统工具
 > * 最主要的是为了搜索引擎方便搜索引擎蜘蛛(Spider)来抓取主页上的相关内容; 
 
 ### 伪静态
-```
-graph TD
-    a(http://state.com/newsList.php?type=2&category_id=1) -->|伪静态| b(http://state.com/newsList.php/2/1.html)
-```  
+    http://state.com/newsList.php?type=2&category_id=1
+    				|
+    	 	      伪静态
+    	 	        |
+    	 	        ▽
+     http://state.com/newsList.php/2/1.html
+
 ### php通过正则处理为静态
 
 nginx服务器默认情况下不支持path_info模式，需要配置
