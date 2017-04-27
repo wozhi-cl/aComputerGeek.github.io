@@ -71,4 +71,88 @@ Percentage of the requests served within a certain time (ms)
  100%   7837 (longest request)
 
 ```
+### php语言级性能优化
+优点化：
+> * 少些代码，多用php自身能力
+> * 性能问题：自写代码冗余较多，可读性不佳，并且性能低
+> * 为什么性能低？php代码需要编译解析为底层语言，这一过程每次请求都会处理一遍，开销大
+
+好的方法：
     
+    多用php内置变量、常量、函数
+    
+例：bad.php
+
+```
+// 准备两个数组、数组内容随机
+$array_1=array();
+$array_2=array();
+
+for($i=0;$i<rand(1000,2000);$i++)
+{
+	$array_1[]=rand();
+}
+
+for($i=0;$i<rand(1000,2000);$i++)
+{
+	$array_2[]=rand();
+}
+
+// 将两个数组合并为一个数组，重复的元素仅保存一次
+$array_merged=array();
+
+foreach($array_1 as $v)
+{
+	$array_merged[]=$v;
+}
+
+foreach($array_2 as $v)
+{
+	if(!in_array($v,$array_merged))
+	{
+		$array_merged[]=$v;
+	}
+}
+
+// $array_merged 就是我们想要的数组了
+var_dump($array_1,$array_2,$array_merged);
+```
+压测：
+```
+    D:\wamp\bin\apache\apache2.4.18\bin>ab.exe -n100 -c10 localhost/test/optimization/bad.php
+
+
+Document Path:          /test/optimization/bad.php
+Document Length:        36495 bytes
+
+Requests per second:    25.52 [#/sec] (mean)
+Time per request:       391.923 [ms] (mean)
+Time per request:       39.192 [ms] (mean, across all concurrent requests)
+```
+good.php
+```
+	$array_1=$array_2=range(1000,2000);
+	shuffle($array_1);
+	shuffle($array_2);
+
+	$array_merged=array_merge($array_1,$array_2);
+	var_dump($array_1,$array_2,$array_merged);
+```
+压测：
+```
+\wamp\bin\apache\apache2.4.18\bin>ab.exe -n100 -c10 localhost/test/optimization/good.php
+
+ocument Path:          /test/optimization/good.php
+ocument Length:        36240 bytes
+
+equests per second:    136.42 [#/sec] (mean)
+ime per request:       73.304 [ms] (mean)
+ime per request:       7.330 [ms] (mean, across all concurrent requests)
+```
+
+#### php代码运行流程
+![](/images/post/php/php1.png)
+
+### php内置函数的性能优劣
+> * 情况描述：php内置函数，之间依然存在快慢差异
+> * 好的建议：多去了解php内置函数的时间复杂度
