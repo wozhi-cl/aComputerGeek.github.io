@@ -83,7 +83,7 @@ Percentage of the requests served within a certain time (ms)
     
 ### php代码运行流程
 
-![](/images/post/php/php1.png)
+![](/images/posts/php/php1.png)
 
 ### php内置函数的性能优劣
 > * 情况描述：php内置函数，之间依然存在快慢差异
